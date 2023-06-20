@@ -1,3 +1,9 @@
+
+Deployed URL or HOSTED URL Please check these
+
+https://incomparable-muffin-9c024b.netlify.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
