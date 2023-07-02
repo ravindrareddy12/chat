@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
+
 import './App.css';
 
 const ChatApp = () => {
@@ -12,15 +15,13 @@ const ChatApp = () => {
     { id: 5, sender: 'siddu', message: 'I am doing great!' },
     { id: 6, sender: 'naveen', message: 'I am doing great!' },
     { id: 7, sender: 'Jane Smith', message: 'I am doing great!' },
-
-    
-    // Add more chat messages here
   ]);
   const [searchInput, setSearchInput] = useState('');
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [showUserList, setShowUserList] = useState(false);
 
   const chatPersons = [
     { id: 1, name: 'Ravindra Reddy', profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: true },
-    // Add more chat persons here
     { id: 2, name: 'priyanka', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXg9k5fHy--R9x2Q8cuvxeQ8TriABt_HJGUQ&usqp=CAU', active: true },
     { id: 3, name: 'mouniksa', profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: false },
     { id: 4, name: 'Haribabu', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQICSVq9-BAcWmscgA5pQyPPxdeJGu6p6w-0Q&usqp=CAU', active: true },
@@ -34,8 +35,15 @@ const ChatApp = () => {
   };
 
   const handleInputChange = (event) => {
-    setMessageInput(event.target.value);
+    const inputValue = event.target.value;
+    setMessageInput(inputValue);
+    if (inputValue.endsWith('@')) {
+      setShowUserList(true);
+    } else {
+      setShowUserList(false);
+    }
   };
+
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
@@ -53,6 +61,11 @@ const ChatApp = () => {
     }
   };
 
+  const handleEmojiSelect = (emoji) => {
+    console.log(emoji.native)
+    setMessageInput((prevInput) => prevInput + emoji.native);
+  };
+
   const filteredChatPersons = chatPersons.filter((person) =>
     person.name.toLowerCase().includes(searchInput.toLowerCase())
   );
@@ -66,12 +79,12 @@ const ChatApp = () => {
             placeholder="Search For Friends"
             value={searchInput}
             onChange={handleSearchInputChange}
-            className='serch'
+            className="serch"
           />
         </div>
         <div className='con-heading'>
           <h3>
-            CONVERSATIONS  <span className='plus-symbol'><i class="fa-regular fa-circle-plus"></i></span>
+            CONVERSATIONS  <span className='plus-symbol'><i className="fa-regular fa-circle-plus"></i></span>
           </h3>
         </div>
         <div className="chat-persons">
@@ -105,20 +118,39 @@ const ChatApp = () => {
                 </div>
               ))}
             </div>
+            {showUserList && (
+                <div className="user-list">
+                  {filteredChatPersons.map((person) => (
+                    <div key={person.id} className="user-list-item" onClick={() => handleUserClick(person)}>
+                      {person.name}
+                    </div>
+                  ))}
+                </div>
+              )}
             <div className="chat-input">
-              <input
-                type="text"
-                placeholder="Type a message..."
-                value={messageInput}
-                onChange={handleInputChange}
-              />
-              <button onClick={handleSendMessage}>Send</button>
+              <div className="input-container">
+                <input
+                  className="input-box"
+                  type="text"
+                  placeholder="Type a message..."
+                  value={messageInput}
+                  onChange={handleInputChange}
+                />
+                <button className="emoji-btn" onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
+                  😀
+                </button>
+                {showEmojiPicker && (
+                <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+              )}
+              </div>
+              
+              <button className="send-btn" onClick={handleSendMessage}>
+                Send
+              </button>
             </div>
           </div>
         ) : (
-          <div className="no-user-selected">
-            Select a user to start chatting
-          </div>
+          <div className="no-user-selected">Select a user to start the conversation</div>
         )}
       </div>
     </div>

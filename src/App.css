@@ -1,6 +1,6 @@
 .chat-app {
   display: flex;
-  height: 100vh;
+  height: auto;
 }
 
 .left-panel {
@@ -104,16 +104,16 @@
   margin-right: 10px;
 }
 
-.chat-input button {
-  padding: 8px 16px;
+.send-btn {
+  padding: 8px 10px;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
-.chat-input button:hover {
+.send-btn:hover {
   background-color: #45a049;
 }
 
@@ -144,4 +144,43 @@
 
 .plus-symbol{
   margin-left: 100px;
+}
+
+.chat-input {
+  position: relative;
+  display: flex;
+}
+
+.input-container {
+  position: relative;
+  flex: 1;
+}
+
+input[type="text"] {
+  padding-right: 40px; /* Adjust the padding to make room for the icon */
+}
+
+.fa-regular.fa-comment-smile {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  /* Add any additional styling for the icon */
+}
+.input-container{
+  width: 60%;
+}
+.input-box{
+  width: 90%;
+}
+.emoji-placer{
+  width: 50px;
+  height: 10px;
+}
+.emoji-btn{
+  width:40px;
+  height: 40px; 
+  margin-top :15px ;
+   background-color:pink;
+   border-radius: 50%;
 }
