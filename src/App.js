@@ -8,11 +8,11 @@ const ChatApp = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [messageInput, setMessageInput] = useState('');
   const [chatMessages, setChatMessages] = useState([
-    { id: 1, sender: 'Ravindra Reddy', message: 'Hello, how are you?' },
-    { id: 2, sender: 'priyanka', message: 'I am doing great!' },
-    { id: 3, sender: 'mouniksa', message: 'I am doing great!' },
-    { id: 4, sender: 'Haribabu', message: 'I am doing great!' },
-    { id: 5, sender: 'siddu', message: 'I am doing great!' },
+    { id: 1, sender: 'Alan', message: 'Hello, how are you?' },
+    { id: 2, sender: 'Bob', message: 'I am doing great!' },
+    { id: 3, sender: 'Carol', message: 'I am doing great!' },
+    { id: 4, sender: 'Dean', message: 'I am doing great!' },
+    { id: 5, sender: 'Elin', message: 'I am doing great!' },
     { id: 6, sender: 'naveen', message: 'I am doing great!' },
     { id: 7, sender: 'Jane Smith', message: 'I am doing great!' },
   ]);
@@ -21,11 +21,11 @@ const ChatApp = () => {
   const [showUserList, setShowUserList] = useState(false);
 
   const chatPersons = [
-    { id: 1, name: 'Ravindra Reddy', profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: true },
-    { id: 2, name: 'priyanka', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXg9k5fHy--R9x2Q8cuvxeQ8TriABt_HJGUQ&usqp=CAU', active: true },
-    { id: 3, name: 'mouniksa', profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: false },
-    { id: 4, name: 'Haribabu', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQICSVq9-BAcWmscgA5pQyPPxdeJGu6p6w-0Q&usqp=CAU', active: true },
-    { id: 5, name: 'siddu', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdI33HYMP2TxYNciaUSPdWsXiHMLtl2JOwEQ&usqp=CAU', active: false },
+    { id: 1, name: 'Alan', profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: true },
+    { id: 2, name: 'Bob', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXg9k5fHy--R9x2Q8cuvxeQ8TriABt_HJGUQ&usqp=CAU', active: true },
+    { id: 3, name: 'Carol', profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: false },
+    { id: 4, name: 'Dean', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQICSVq9-BAcWmscgA5pQyPPxdeJGu6p6w-0Q&usqp=CAU', active: true },
+    { id: 5, name: 'Elin', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdI33HYMP2TxYNciaUSPdWsXiHMLtl2JOwEQ&usqp=CAU', active: false },
     { id: 6, name: 'naveen',   profileIcon: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80', active: true },
     { id: 7, name: 'Jane Smith', profileIcon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu6Ur2YSrHsYLbQhFX0Lmx4VnQPKkrqSAHQw&usqp=CAU', active: false },
   ];
